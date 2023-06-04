@@ -70,15 +70,12 @@ export class News extends Component {
       <div className='container my-3'>
         <h3>GoNews - Top Headlines</h3>
         <div className="row">
-          <div className="col-md-4">
-            <NewsItem title="myTitle" description="mydesc" imageUrl="https://medias.lequipe.fr/img-photo-jpg/les-mousquetaires-de-paris-sont-prets-a-entrer-en-scene-en-elf-m-le-pihif-dr/1500000001792060/0:0,817:544-640-427-75/8d5e7.jpg" newsUrl="TODO" />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="myTitle" description="mydesc" />
-          </div>
-          <div className="col-md-4">
-            <NewsItem title="myTitle" description="mydesc" />
-          </div>
+          {this.state.articles.map((element) => {
+            return <div className="col-md-4" key={element.url}>
+              <NewsItem title={element.title.slice(0,45)} description={element.description.slice(0,88)} imageUrl={element.urlToImage} newsUrl={element.url} />
+            </div>
+          })}
+
         </div>
       </div>
     )
