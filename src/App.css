@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-image: url("https://img.freepik.com/free-vector/technology-global-digital-earth-futuristic-background_1017-23323.jpg?w=1380&t=st=1685957031~exp=1685957631~hmac=b27597d9ce2ac81e7941ecb48157704c9394a6b7f6e169bd57981e689ce87011");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}

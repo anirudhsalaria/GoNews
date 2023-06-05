@@ -45,7 +45,7 @@ export class News extends Component {
   render() {
     return (
       <div className='container my-3'>
-        <h3>GoNews - Top Headlines</h3>
+        <h3 className='text-white'>GoNews - Top Headlines</h3>
         <div className="row">
           {this.state.articles.map((element) => {
             return <div className="col-md-4" key={element.url}>
@@ -54,8 +54,8 @@ export class News extends Component {
           })}
         </div>
         <div className="container d-flex justify-content-between">
-          <button disabled={this.state.page <= 1} type="button" class="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
-          <button type="button" class="btn btn-dark px-4" onClick={this.handleNextClick}>Next &rarr;</button>
+          <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
+          <button type="button" className="btn btn-dark px-4" onClick={this.handleNextClick}>Next &rarr;</button>
         </div>
       </div>
     )
