@@ -1,5 +1,5 @@
 ### GoNews
-GoNews is a News website made using React.js and News API. Here you can read about various top headlines under different categories.                         
+GoNews is a News website made using React.js and News API. Here you can read various top headlines under different categories.                         
 This website provides news under the categories Business, Entertainment, Health, Science, Technology and Sports.                                             
 ### Steps for using website
 1. Fork the repository.
