@@ -30,17 +30,17 @@ export class News extends Component {
   async componentDidMount() {
     this.props.setProgress(20);
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5bb6f4fb93b64fd58e2abd79fcd2544b&pageSize=${this.props.pageSize}`;
-    this.setState({loading :true});
+    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
-    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults,loading: false })
+    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults, loading: false })
     this.props.setProgress(100);
   }
 
   handlePrevClick = async () => {
     let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5bb6f4fb93b64fd58e2abd79fcd2544b&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-    this.setState({loading :true});
+    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -53,7 +53,7 @@ export class News extends Component {
   handleNextClick = async () => {
     if (!(this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize))) {
       let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=5bb6f4fb93b64fd58e2abd79fcd2544b&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
-      this.setState({loading :true});
+      this.setState({ loading: true });
       let data = await fetch(url);
       let parsedData = await data.json();
       this.setState({
@@ -67,12 +67,12 @@ export class News extends Component {
   render() {
     return (
       <div className='container my-3'>
-        <h2 className='text-white text-center' style={{marginTop: "60px"}}>GoNews - Top Headlines</h2>
-        {this.state.loading && <Spinner/>}
+        <h2 className='text-white text-center' style={{ marginTop: "60px" }}>GoNews - Top Headlines</h2>
+        {this.state.loading && <Spinner />}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
             return <div className="col-md-4" key={element.url}>
-              <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
+              <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
             </div>
           })}
         </div>
